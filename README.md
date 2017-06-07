@@ -35,8 +35,8 @@ This work is licensed under ** define**
 ## Dependencies
 This package is built upon other libraries and frameworks. Here we list them, their respective authors and licenses.
 
-* The **B-Human modules** provided here were developed to be compatible with the [B-Human Framework](https://github.com/bhuman/BHumanCodeRelease), as well as the _representations_ and _communication libraries_ used in the **bhuman2ros** node. The framework includes its own license; details can be found [here](https://github.com/bhuman/BHumanCodeRelease/blob/master/License.txt)
-* The **URDF model we provide here** is based on [Armin Hornung's](http://wiki.ros.org/nao_robot), licensed under the BSD.
+* The **B-Human modules** provided here were developed to be compatible with the [B-Human Framework](https://github.com/bhuman/BHumanCodeRelease), as well as the _representations_ and _communication libraries_ used in the **bhuman2ros** node. The framework includes its own license; details can be found [here](https://github.com/bhuman/BHumanCodeRelease/blob/master/License.txt).
+* The **URDF model we provide here** is based on [Armin Hornung's](http://wiki.ros.org/nao_robot), licensed under the [BSD](https://github.com/ros-naoqi/nao_robot/blob/master/LICENSE.txt).
 
 
 
