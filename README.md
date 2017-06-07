@@ -6,7 +6,7 @@ This package accompanies the paper _"The NAO Backpack: An Open-hardware Add-on f
 
 Matías Mattamala, Gonzalo Olave, Clayder González, Nicolás Hasbún, and Javier Ruiz-del-Solar. The NAO Backpack: An Open-hardware Add-on for Fast Software Development with the NAO Robot. RoboCup Symposium 2017, NAgoya, Japan, 2017. **TODO** [PDF](https://github.com/uchile-robotics/nao-backpack)
 
-** Bibtex**
+**Bibtex**
 
     @article{murTRO2015,
       title={ {The NAO Backpack: An Open-hardware Add-on for Fast Software Development with the NAO Robot}},
