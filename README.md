@@ -8,7 +8,7 @@ Matías Mattamala, Gonzalo Olave, Clayder González, Nicolás Hasbún, and Javie
 
 **Bibtex**
 
-    @article{murTRO2015,
+    @article{mattamalaRoboCup2017,
       title={ {The NAO Backpack: An Open-hardware Add-on for Fast Software Development with the NAO Robot}},
       author={Mattamala, Mat\'ias, Olave, Gonzalo, Gonz\'alez, Clayder, Hasb\'un, Nicol\'as, and Ruiz-del-Solar, Javier},
       year = {2017},
