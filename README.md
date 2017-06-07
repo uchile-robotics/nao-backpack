@@ -18,7 +18,7 @@ This package includes:
 
 - A **CAD model** to print yout own NAO backpack
 - An **URDF model** with the backpack
-- Some [**B-Human framework's modules**](https://github.com/bhuman/BHumanCodeRelease) to publish internal representations via UDP
+- Some **B-Human framework's modules** to publish internal representations via UDP
 - A **ROS node (bhuman2ros)** to publish the UDP messages from the NAO to ROS topics
 
 ## Overview
