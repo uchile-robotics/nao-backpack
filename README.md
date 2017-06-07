@@ -16,10 +16,11 @@ Matías Mattamala, Gonzalo Olave, Clayder González, Nicolás Hasbún, and Javie
     
 This package includes:
 
-- A CAD model to print yout own NAO backpack
-- An URDF model with the backpack
-- Some [B-Human framework](https://github.com/bhuman/BHumanCodeRelease)'s modules to publish internal representations via UDP
-- A ROS node (**bhuman2ros**) to publish the UDP messages from the NAO to ROS topics
+- A **CAD model** to print yout own NAO backpack
+- An **URDF model** with the backpack
+- Some [**B-Human framework's modules**](https://github.com/bhuman/BHumanCodeRelease) to publish internal representations via UDP
+- A **ROS node (bhuman2ros)** to publish the UDP messages from the NAO to ROS topics
+
 ## Overview
 ### CAD model
 
@@ -30,7 +31,7 @@ This package includes:
 ### bhuman2ros
 
 ## License
-This work is licensed under ** define**
+This work is licensed under **define**
 
 ## Dependencies
 This package is built upon other libraries and frameworks. Here we list them, their respective authors and licenses.
