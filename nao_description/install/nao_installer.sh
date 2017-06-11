@@ -1,10 +1,11 @@
 #!/bin/bash
 
-mkdir -p ~/nao_ws/src
-cd ~/nao_ws
+curr_path=$PWD
+#mkdir -p ~/nao_ws/src
+cd ~/catkin_ws
 
 # Add repositories
-wstool init src https://raw.githubusercontent.com/uchile-robotics/nao-backpack/master/install/nao_install.rosinstall?token=AK4UsvFQOYnmMAowv5z-eZjfauJLGGFRks5Y38mtwA%3D%3D
+wstool init src $curr_path/nao_install.rosinstall
 
 # Install system and ROS dependencies
 rosdep install -i -y --from-paths src
