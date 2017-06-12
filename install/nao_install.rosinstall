@@ -1,7 +1,7 @@
 - git:
     local-name: nao_robot
-    # fork: https://github.com/uchile-robotics/nao_robot.git
-    uri: https://github.com/ros-naoqi/nao_robot.git
+    fork: https://github.com/uchile-robotics/nao_robot.git
+    ## uri: https://github.com/ros-naoqi/nao_robot.git
     version: master
 
 - git:
