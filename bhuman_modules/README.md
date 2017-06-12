@@ -21,7 +21,7 @@ We preserve the same code structure to save the files. It is a bit annoying but 
     {representation = HeadMotionRequest; provider = CognitionBackpackComm;},
     {representation = MotionRequest; provider = CognitionBackpackComm;},
 
-In addition, you **must** add `HeadMotionRequest`into the `MessageIDs.h` file ($BHDIR/Src/Tools/MessageQueue/MessageIDs.h).
+In addition, you **must** add `HeadMotionRequest`into the `MessageIDs.h` file (`your_bh_dir/Src/Tools/MessageQueue/MessageIDs.h`).
 
 ## License
 Please see the NAO Backpack package license.
