@@ -1,6 +1,6 @@
 # The NAO Backpack package
 
-<img src="backpack_cad/real_nao_with_backpack.JPG"  width="300" align="right"/>
+<img src="backpack_cad/img/real_nao_with_backpack.JPG"  width="300" align="right"/>
 
 This package accompanies the paper _"The NAO Backpack: An Open-hardware Add-on for Fast Software Development with the NAO Robot"_ accepted in the [RoboCup Symposium 2017](https://www.robocup2017.org/). Please feel free to contribute and collaborate via **issues** or **pull requests** :)
 
