@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# THis files configures ROS for hotspot connection
+# This file configures ROS for hotspot connection
 
 echo "Setting ROS_MASTER_URI..."
 if [ $# -gt 0 ]; then
