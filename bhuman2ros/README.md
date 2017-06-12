@@ -30,6 +30,7 @@ Please see the NAO Backpack package license.
 ## Troubleshooting
 * **The data is not being published in ROS**: Please check that you are subscribing the right topics (by deault, all are published under the `bhuman2ros` namespace).
 * **The joystick is not working**: Even the data can be published and displayed in ROS, it is possible that MotionRequests and HeadMotionRequests are not send back to NAO. Please check that you are using the correct robot IP.
+* **The NAO code fails on run time**: If your are experiencing some errors to run the NAO software while using the backpack, please check that your `MessageID.h` file in your B-Human folder is exactly the same as the backpack's. Since this file is basically an enumeration of message identifiers, any difference will cause inconsistencies in message handling between the NAO and the backpack.
 
 ## Pending work
 * The current joystick control is hardcoded and based on an XBox 360 controller
