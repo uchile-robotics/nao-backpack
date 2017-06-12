@@ -4,7 +4,7 @@ This package accompanies the paper _"The NAO Backpack: An Open-hardware Add-on f
 
 **To cite this work:**
 
-Matías Mattamala, Gonzalo Olave, Clayder González, Nicolás Hasbún, and Javier Ruiz-del-Solar. The NAO Backpack: An Open-hardware Add-on for Fast Software Development with the NAO Robot. RoboCup Symposium 2017, Nagoya, Japan, 2017. **TODO** [PDF](https://github.com/uchile-robotics/nao-backpack)
+Matías Mattamala, Gonzalo Olave, Clayder González, Nicolás Hasbún, and Javier Ruiz-del-Solar. The NAO Backpack: An Open-hardware Add-on for Fast Software Development with the NAO Robot. RoboCup Symposium 2017, Nagoya, Japan, 2017. 
 
 **Bibtex**
 
@@ -16,19 +16,13 @@ Matías Mattamala, Gonzalo Olave, Clayder González, Nicolás Hasbún, and Javie
 
 This package includes:
 
-- A **CAD model** and instructions to print your own NAO backpack
-- An **URDF model** with the backpack
-- Some **B-Human framework's modules** to publish internal representations via UDP
-- A **ROS node (bhuman2ros)** to publish the UDP messages from the NAO to ROS topics
+- A **CAD model** and instructions to print your own NAO backpack.
+- An **URDF model** with the backpack. (**pending**)
+- Some **B-Human framework's modules** to publish internal representations via UDP as well as **configuration files**.
+- A **ROS node (bhuman2ros)** to publish the UDP messages from the NAO to ROS topics.
 
-## Overview
-### CAD model (`backpack_cad`)
+Please refer the **paper** [(PDF)](https://github.com/uchile-robotics/nao-backpack) for a general overview of the software.
 
-### URDF model (`nao_description`)
-
-### B-Human's framework related modules  (`bhuman_modules`)
-
-### bhuman2ros node  (`bhuman2ros`)
 
 ## License
 This work is licensed under **define**
@@ -38,5 +32,5 @@ This package is built upon other libraries and frameworks. Here we list them, th
 
 * The **B-Human modules** provided here were developed to be compatible with the [B-Human Framework](https://github.com/bhuman/BHumanCodeRelease), as well as the _representations_ and _communication libraries_ used in the **bhuman2ros** node. The framework includes its own license; details can be found [here](https://github.com/bhuman/BHumanCodeRelease/blob/master/License.txt).
 * The **URDF model we provide here** is based on [Armin Hornung's](http://wiki.ros.org/nao_robot), licensed under the [BSD](https://github.com/ros-naoqi/nao_robot/blob/master/LICENSE.txt).
-* The `set_ros_master.sh` script is based on [Duckietown's](http://wwww.github.com/duckietown/Software.git)
-* The `hotspot.sh` script is based on [Duckietown Chile's](http://www.github.com/Duckietown-Chile/Software.git)
+* The `set_ros_master.sh` script is based on [Duckietown's](http://wwww.github.com/duckietown/Software.git).
+* The `hotspot.sh` script is based on [Duckietown Chile's](http://www.github.com/Duckietown-Chile/Software.git).
