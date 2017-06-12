@@ -35,13 +35,13 @@ class MotionBackpackComm : public MotionBackpackCommBase, public MessageHandler
   STREAMABLE(Parameters,
   {,
     (bool)(false) enabled,
-    (int)(10030) sensorPort,
-    (int)(10040) imagePort,
+    (int)(10030) motionPort,
+    (int)(10040) cognitionPort,
     (std::string)("192.168.21.100") ip,
   });
   
 private:
-  const int PACKET_SIZE = 1400;
+  //const int PACKET_SIZE = 1400;
 
   // the robot parameters
   Parameters params;

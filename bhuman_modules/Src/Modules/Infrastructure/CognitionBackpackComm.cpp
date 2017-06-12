@@ -16,11 +16,7 @@ CognitionBackpackComm::CognitionBackpackComm()
 {
   // load parameters
   loadParameters();
-  
-#ifndef TARGET_ROBOT
-  params.ip = "127.0.0.1";
-#endif
-  
+   
   // initialize message queues
   sender.setSize(2800000);
   receiver.setSize(2800000);
@@ -28,8 +24,8 @@ CognitionBackpackComm::CognitionBackpackComm()
   // configure image socket 
   imageSocket.setBlocking(false);
   imageSocket.setBroadcast(false);
-  imageSocket.bind("0.0.0.0", params.imagePort);
-  imageSocket.setTarget(params.ip.c_str(), params.imagePort);
+  imageSocket.bind("0.0.0.0", params.cognitionPort);
+  imageSocket.setTarget(params.ip.c_str(), params.cognitionPort);
   imageSocket.setTTL(0);
   imageSocket.setLoopback(false); // no reception of own packages
 }

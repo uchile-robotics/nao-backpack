@@ -14,11 +14,7 @@ MotionBackpackComm::MotionBackpackComm()
 {
   // load parameters
   loadParameters();
-  
-#ifndef TARGET_ROBOT
-  params.ip = "127.0.0.1";
-#endif
-  
+    
   // initialize message queues
   sender.setSize(2800000);
   receiver.setSize(2800000);
@@ -26,8 +22,8 @@ MotionBackpackComm::MotionBackpackComm()
   // configure socket
   socket.setBlocking(false);
   socket.setBroadcast(false);
-  socket.bind("0.0.0.0", params.sensorPort);
-  socket.setTarget(params.ip.c_str(), params.sensorPort);
+  socket.bind("0.0.0.0", params.motionPort);
+  socket.setTarget(params.ip.c_str(), params.motionPort);
   socket.setTTL(0);
 
   socket.setLoopback(true); // no reception of own packages

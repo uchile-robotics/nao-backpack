@@ -39,8 +39,8 @@ class CognitionBackpackComm : public CognitionBackpackCommBase, public MessageHa
   {,
     (bool)(false) enabled,
 	(bool)(true) sendUpper,       // If we want to send the upper or lower image
-    (int)(10030) sensorPort,
-    (int)(10040) imagePort,
+    (int)(10030) motionPort,
+    (int)(10040) cognitionPort,
     (std::string)("192.168.21.100") ip,
   });
     
