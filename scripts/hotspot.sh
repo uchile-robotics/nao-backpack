@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # This file enables/disables a hotspot
 
-# if the hotspot name is not set, exit
+# if the hotspot name is not given, exit
 if [ -z "$1" ]; then
   echo "Usage: $0 $1 {on|off}"
   exit 1
