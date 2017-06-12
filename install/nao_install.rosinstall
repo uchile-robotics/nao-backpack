@@ -1,23 +1,20 @@
 - git:
     local-name: nao_robot
-    fork: https://github.com/uchile-robotics/nao_robot.git
-    ## uri: https://github.com/ros-naoqi/nao_robot.git
+    uri: https://github.com/uchile-robotics/nao_robot.git
+    # uri: https://github.com/ros-naoqi/nao_robot.git
     version: master
 
 - git:
     local-name: nao_meshes
-    # fork: https://github.com/uchile-robotics/nao_meshes.git
     uri: https://github.com/ros-naoqi/nao_meshes.git
     version: master
 
 - git:
     local-name: naoqi_bridge
-    # fork: https://github.com/uchile-robotics/naoqi_bridge.git
     uri: https://github.com/ros-naoqi/naoqi_bridge.git
     version: master
 
 - git:
     local-name: naoqi_driver
-    # fork: https://github.com/uchile-robotics/naoqi_driver.git
     uri: https://github.com/ros-naoqi/naoqi_driver.git
     version: master
