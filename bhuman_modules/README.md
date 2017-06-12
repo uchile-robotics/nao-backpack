@@ -1,7 +1,8 @@
 # B-Human Modules
 
-This folder includes the [B-Human framework](https://github.com/bhuman/BHumanCodeRelease/releases/tag/coderelease2016) compatible files to be run along the **bhuman2ros** package. We provide two modules **CognitionBackpackComm** and **MotionBackpackComm** to be executed in the _Cognition_ and _Motion_ processes respectively, as well as the configuration files required by these modules and the modified `massCalibration.cfg` file to be used with the backpack.
+This folder includes the [B-Human framework](https://github.com/bhuman/BHumanCodeRelease/releases/tag/coderelease2016) compatible files to be run along eith the **bhuman2ros** package. 
 
+We provide two modules **CognitionBackpackComm** and **MotionBackpackComm** to be executed in the _Cognition_ and _Motion_ processes respectively, as well as the configuration files required by these modules and the modified **`massCalibration.cfg`** file that included the modified mass and offset of the torso while using the backpack.
 
 
 ## Required libraries
