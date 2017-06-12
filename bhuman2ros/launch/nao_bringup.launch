@@ -24,10 +24,10 @@
   <!-- run bhuman2ros node -->
   <node pkg="bhuman2ros" type="bhuman2ros_node" name="bhuman2ros_node">
     <!-- Remap topics -->
-    <remap from="bhuman2ros/joy" to="joy"/>
-    <remap from="bhuman2ros/camera/image_raw" to="camera/image_raw"/>
-    <remap from="bhuman2ros/joint_states" to="joint_states"/>
-    <remap from="bhuman2ros/imu/data_raw" to="imu"/>
+    <remap from="bhuman2ros_node/joy" to="joy"/>
+    <remap from="bhuman2ros_node/camera/image_raw" to="camera/image_raw"/>
+    <remap from="bhuman2ros_node/joint_states" to="joint_states"/>
+    <remap from="bhuman2ros_node/imu/data_raw" to="imu"/>
 
     <!-- load parameters -->
     <param name="ip_cognition" type="string" value="$(arg robot_ip)" />
