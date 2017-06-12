@@ -1,0 +1,52 @@
+<launch>
+  <arg name="version"  default="V40"            doc="The NAO version currently used" />
+  <arg name="use_rviz" default="false"          doc="True to start RViz"/>
+  <arg name="use_joy"  default="false"          doc="True to use a joystick"/>
+  <arg name="robot_ip" default="192.168.21.121" doc="The IP of the robot to be connected"/>
+  <arg name="joy_dev"  default="/dev/input/js0" doc="Joystick device"/>
+
+  <!-- NAO description -->
+  <!-- Dependency: NAO description -->
+  <include file="$(find nao_description)/launch/upload_nao.launch" >
+    <arg name="version" value="$(arg version)" />
+  </include>
+
+  <!-- Launch complete robot model with base_footprint -->
+  <node pkg="nao_description" type="base_footprint" name="base_footprint"/>
+
+  <!-- Load the robot state publisher -->
+  <node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="100.0"/>
+    <param name="use_tf_static" type="bool" value="true"/>
+    <param name="ignore_timestamp" type="bool" value="false"/>
+  </node>
+
+  <!-- run bhuman2ros node -->
+  <node pkg="bhuman2ros" type="bhuman2ros_node" name="bhuman2ros_node">
+    <!-- Remap topics -->
+    <remap from="bhuman2ros/joy" to="joy"/>
+    <remap from="bhuman2ros/camera/image_raw" to="camera/image_raw"/>
+    <remap from="bhuman2ros/joint_states" to="joint_states"/>
+    <remap from="bhuman2ros/imu/data_raw" to="imu"/>
+
+    <!-- load parameters -->
+    <param name="ip_cognition" type="string" value="$(arg robot_ip)" />
+    <param name="ip_motion" type="string" value="$(arg robot_ip)" />
+  </node>
+
+  <!-- run Rviz -->
+  <group if="$(arg use_rviz)">
+    <arg name="config_file" value="$(find nao_description)/config/urdf.rviz"/>
+    <node name="$(anon rviz)" pkg="rviz" type="rviz" respawn="false" output="screen" args="-d $(arg config_file)" />
+  </group>
+
+  <!-- run joystick -->
+  <group if="$(arg use_joy)">
+    <!-- Joy node -->
+    <node respawn="true" pkg="joy" type="joy_node" name="basic_joy">
+      <param name="dev" type="string" value="$(arg joy_dev)" />
+      <param name="deadzone" value="0.5" />
+    </node>
+  </group>
+
+</launch>
