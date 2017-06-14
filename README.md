@@ -2,7 +2,7 @@
 
 <img src="backpack_cad/img/real_nao_with_backpack.JPG"  width="300" align="right"/>
 
-This package accompanies the paper _"The NAO Backpack: An Open-hardware Add-on for Fast Software Development with the NAO Robot"_ accepted in the [RoboCup Symposium 2017](https://www.robocup2017.org/). Please feel free to contribute and collaborate via **issues** or **pull requests** :)
+This package accompanies the paper _"The NAO Backpack: An Open-hardware Add-on for Fast Software Development with the NAO Robot"_ accepted in the [RoboCup Symposium 2017](https://www.robocup2017.org/). Feel free to contribute and collaborate via **issues** or **pull requests** :)
 
 This package includes:
 
@@ -11,9 +11,14 @@ This package includes:
 - Some **B-Human framework's modules** to publish internal representations via UDP as well as **configuration files**.
 - A **ROS node (bhuman2ros)** to publish the UDP messages from the NAO to ROS topics.
 
-Please refer the **paper** [(PDF)](https://github.com/uchile-robotics/nao-backpack) for a general overview of the software.
+## Instructions
 
-**To cite this work:**
+* For a technical overview of this project, please refer the **paper** [(PDF)](https://github.com/uchile-robotics/nao-backpack).
+* Installation of the **backpack software**: [link](https://github.com/uchile-robotics/nao-backpack/tree/master/install)
+* Installation of the **NAO software**: [link](https://github.com/uchile-robotics/nao-backpack/tree/master/bhuman_modules)
+* How to **run everything**: [link](RUN_EVERYTHING.md)
+
+## To cite this work
 
 Matías Mattamala, Gonzalo Olave, Clayder González, Nicolás Hasbún, and Javier Ruiz-del-Solar. The NAO Backpack: An Open-hardware Add-on for Fast Software Development with the NAO Robot. RoboCup Symposium 2017, Nagoya, Japan, 2017. 
 
