@@ -6,17 +6,17 @@ This package accompanies the paper _"The NAO Backpack: An Open-hardware Add-on f
 
 This package includes:
 
-- A **CAD model** and instructions to print your own NAO backpack.
+- A **CAD model** and instructions to build your own NAO backpack.
 - An **URDF model** with the backpack. (**pending**)
 - Some **B-Human framework's modules** to publish internal representations via UDP as well as **configuration files**.
 - A **ROS node (bhuman2ros)** to publish the UDP messages from the NAO to ROS topics.
 
 ## Instructions
 
-* For a technical overview of this project, please refer the **paper** [(PDF)](https://github.com/uchile-robotics/nao-backpack).
-* Installation of the **backpack software**: [link](https://github.com/uchile-robotics/nao-backpack/tree/master/install)
-* Installation of the **NAO software**: [link](https://github.com/uchile-robotics/nao-backpack/tree/master/bhuman_modules)
-* How to **run everything**: [link](RUN_EVERYTHING.md)
+* For an overview of this project, please refer the **paper** [[PDF]](https://github.com/uchile-robotics/nao-backpack).
+* Installation of the **backpack software**: [[link]](https://github.com/uchile-robotics/nao-backpack/tree/master/install)
+* Installation of the **NAO software**: [[link]](https://github.com/uchile-robotics/nao-backpack/tree/master/bhuman_modules)
+* How to **run everything**: [[link]](RUN_EVERYTHING.md)
 
 ## To cite this work
 
