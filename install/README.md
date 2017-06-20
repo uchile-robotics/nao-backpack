@@ -1,6 +1,6 @@
 # Installation instructions
 
-In order to follow the isntructions, we assume that:
+In order to follow the instructions, we assume that:
 
 * You built your NAO backpack using the same hardware as us, i.e. using the ODROID XU4. Also, we 
 * You have already cloned this repository. If not `git clone https://www.github.com/uchile-robotics/nao-backpachk.git`
