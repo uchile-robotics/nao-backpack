@@ -14,10 +14,10 @@ This package includes:
 
 ## Instructions
 
-* For an overview of this project, please refer the **paper** [[PDF]](https://github.com/uchile-robotics/nao-backpack).
-* Installation of the **backpack software**: [[link]](https://github.com/uchile-robotics/nao-backpack/tree/master/install_scripts)
-* Installation of the **NAO software**: [[link]](https://github.com/uchile-robotics/nao-backpack/tree/master/bhuman_modules)
-* How to **configurate and run everything**: [[link]](https://github.com/uchile-robotics/nao-backpack/tree/master/config_scripts)
+* For an overview of this project, please refer the [**paper**](https://github.com/uchile-robotics/nao-backpack).
+* Installation of the [**backpack software**](https://github.com/uchile-robotics/nao-backpack/tree/master/install_scripts).
+* Installation of the [**NAO software**](https://github.com/uchile-robotics/nao-backpack/tree/master/bhuman_modules).
+* How to [**configurate and run everything**](https://github.com/uchile-robotics/nao-backpack/tree/master/config_scripts).
 
 ## To cite this work
 
