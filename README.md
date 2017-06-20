@@ -6,10 +6,10 @@ This package accompanies the paper _"The NAO Backpack: An Open-hardware Add-on f
 
 This package includes:
 
-- A **CAD model** and instructions to build your own NAO backpack.
+- A [**CAD model**](/cad_model) and instructions to build your own NAO backpack.
 - An **URDF model** with the backpack. (**pending**)
-- Some **B-Human framework's modules** to publish internal representations via UDP as well as **configuration files**.
-- A **ROS node (bhuman2ros)** to publish the UDP messages from the NAO to ROS topics.
+- Some [**B-Human framework's modules**](/bhuman_modules) to publish internal representations via UDP as well as **configuration files**.
+- A [**ROS node (bhuman2ros)**](/bhuman2ros) to publish the UDP messages from the NAO to ROS topics.
 
 ## Instructions
 
