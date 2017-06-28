@@ -41,7 +41,7 @@ class MotionBackpackComm : public MotionBackpackCommBase, public MessageHandler
   });
   
 private:
-  //const int PACKET_SIZE = 1400;
+  const int PACKET_SIZE = 1400;
 
   // the robot parameters
   Parameters params;
