@@ -198,7 +198,7 @@ void CognitionComm::joystickToMotionRequest(const sensor_msgs::Joy::ConstPtr& jo
     head_motion_request_.tilt =  -joy->axes[4] * (joy->axes[4] >= 0.f? joystick_control_.head_max_tilt_ : joystick_control_.head_min_tilt_);
     head_motion_request_.speed = 2.f;
 #ifdef VERBOSE
-        ROS_INFO("Cognition Comm: HeadMotionRequest: pan: %f, tilt: %f", head_motion_request_.pan, head_motion_request_tilt);
+        ROS_INFO("Cognition Comm: HeadMotionRequest: pan: %f, tilt: %f", head_motion_request_.pan, head_motion_request_.tilt);
 #endif
 
     // avoid kicking again
@@ -255,4 +255,3 @@ void CognitionComm::joystickToMotionRequest(const sensor_msgs::Joy::ConstPtr& jo
 }
 
 } //bhuman2ros
-
