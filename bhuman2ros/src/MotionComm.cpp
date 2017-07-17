@@ -107,9 +107,12 @@ void MotionComm::prepareAndPublishFSR()
 #ifdef VERBOSE
     //ROS_INFO("Publishing FSR!");
 #endif
-    /*
-    TODO
-    */
+    geometry_msgs::PointStamped ros_fsr;
+    ros_fsr.header.stamp = time;
+    ros_fsr.point.x = fsr_sensor_data_.leftTotal;
+    ros_fsr.point.y = fsr_sensor_data_.rightTotal;
+
+    fsr_publisher_->publish(ros_fsr);
 }
 
 void MotionComm::prepareAndPublishSystemData()

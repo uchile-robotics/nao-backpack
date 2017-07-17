@@ -18,7 +18,6 @@ find_package(Boost REQUIRED COMPONENTS thread)
 find_package(Eigen3 REQUIRED)
 include_directories(${EIGEN3_INCLUDE_DIR})
 
-
 ## Debug flag
 set(CMAKE_BUILD_TYPE Release)
 
@@ -26,7 +25,6 @@ set(CMAKE_BUILD_TYPE Release)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 
 ## Set support for C++11
-
 macro(use_cxx11)
   if (CMAKE_VERSION VERSION_LESS "3.1")
     if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")

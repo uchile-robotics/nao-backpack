@@ -26,7 +26,7 @@ MotionBackpackComm::MotionBackpackComm()
   socket.setTarget(params.ip.c_str(), params.motionPort);
   socket.setTTL(0);
 
-  socket.setLoopback(true); // no reception of own packages
+  socket.setLoopback(false); // no reception of own packages
 }
 
 void MotionBackpackComm::update(MotionBackpackData& MotionBackpackData)

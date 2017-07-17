@@ -71,6 +71,11 @@ bool CognitionComm::receiveMessages()
             {
                 m_size = 0;
                 expected_size = ((unsigned int*) tmp_buf_)[0];
+
+                #ifdef VERBOSE
+                    ROS_INFO("Cognition Comm: expecting image of size %d", expected_size);
+                #endif
+
                 continue;
             }
             // otherwise, we assume the packets are correct and we keep saving them
@@ -190,13 +195,16 @@ void CognitionComm::joystickToMotionRequest(const sensor_msgs::Joy::ConstPtr& jo
     if(joy->buttons[6])
     {
         control_omni_ = control_omni_? false : true;
+        //#ifdef VERBOSE
+            ROS_INFO("Cognition Comm: Omnidirectional control: %d", control_omni_);
+        //#endif
     }
 
     // fill head motion request
     head_motion_request_.cameraControlMode = HeadMotionRequest::upperCamera;
     head_motion_request_.pan  = joystick_control_.head_max_pan_ * joy->axes[3];
     head_motion_request_.tilt =  -joy->axes[4] * (joy->axes[4] >= 0.f? joystick_control_.head_max_tilt_ : joystick_control_.head_min_tilt_);
-    head_motion_request_.speed = 2.f;
+    head_motion_request_.speed = 1.f;
 #ifdef VERBOSE
         ROS_INFO("Cognition Comm: HeadMotionRequest: pan: %f, tilt: %f", head_motion_request_.pan, head_motion_request_.tilt);
 #endif

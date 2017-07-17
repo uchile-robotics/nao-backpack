@@ -25,6 +25,7 @@
 #include <sensor_msgs/Imu.h>
 #include <sensor_msgs/JointState.h>
 #include <sensor_msgs/Joy.h>
+#include <geometry_msgs/PointStamped.h>
 
 // Boost
 #include <boost/thread.hpp>

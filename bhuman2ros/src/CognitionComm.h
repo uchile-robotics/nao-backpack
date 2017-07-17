@@ -54,7 +54,7 @@ class CognitionComm : public CommBase
 public:
     // Constructor
     CognitionComm() : CommBase() {}
-    CognitionComm(std::string name, std::string ip, int port, int buffer_size, int rate, boost::mutex &mutex) : CommBase(name, ip, port, buffer_size, rate, mutex) {}
+    CognitionComm(std::string name, std::string ip, int port, int buffer_size, int rate, boost::mutex &mutex) : CommBase(name, ip, port, buffer_size, rate, mutex), control_omni_(false) {}
 
     // Methods
     void joystickToMotionRequest(const sensor_msgs::Joy::ConstPtr& joy);

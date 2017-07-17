@@ -17,6 +17,7 @@
 #include <ros/ros.h>
 #include <image_transport/image_transport.h>
 #include <sensor_msgs/Joy.h>
+//#include <geometry_msgs/PointStamped.h>
 
 // Boost
 #include <boost/thread.hpp>
