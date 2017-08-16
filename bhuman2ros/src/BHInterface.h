@@ -17,7 +17,8 @@
 #include <ros/ros.h>
 #include <image_transport/image_transport.h>
 #include <sensor_msgs/Joy.h>
-//#include <geometry_msgs/PointStamped.h>
+#include <naoqi_bridge_msgs/FloatArrayStamped.h>
+#include <naoqi_bridge_msgs/FloatStamped.h>
 
 // Boost
 #include <boost/thread.hpp>
@@ -60,6 +61,8 @@ private:
     ros::Publisher imu_publisher_;
     ros::Publisher joint_state_publisher_;
     ros::Publisher fsr_publisher_;
+    ros::Publisher fsr_l_publisher_, fsr_l_total_publisher_;
+    ros::Publisher fsr_r_publisher_, fsr_r_total_publisher_;
     image_transport::CameraPublisher cam_publisher_;
 
     ros::Subscriber joy_subscriber_;

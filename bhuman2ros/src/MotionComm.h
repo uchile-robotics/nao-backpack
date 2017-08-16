@@ -26,6 +26,8 @@
 #include <sensor_msgs/JointState.h>
 #include <sensor_msgs/Joy.h>
 #include <geometry_msgs/PointStamped.h>
+#include <naoqi_bridge_msgs/FloatArrayStamped.h>
+#include <naoqi_bridge_msgs/FloatStamped.h>
 
 // Boost
 #include <boost/thread.hpp>
@@ -45,6 +47,8 @@ public:
     boost::shared_ptr<ros::Publisher> imu_publisher_;
     boost::shared_ptr<ros::Publisher> joints_publisher_;
     boost::shared_ptr<ros::Publisher> fsr_publisher_;
+    boost::shared_ptr<ros::Publisher> fsr_r_publisher_, fsr_r_total_publisher_;
+    boost::shared_ptr<ros::Publisher> fsr_l_publisher_, fsr_l_total_publisher_;
 
     // Constructor
     MotionComm() : CommBase() {}

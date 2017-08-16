@@ -107,12 +107,50 @@ void MotionComm::prepareAndPublishFSR()
 #ifdef VERBOSE
     //ROS_INFO("Publishing FSR!");
 #endif
+    naoqi_bridge_msgs::FloatArrayStamped ros_fsr_l;
+    ros_fsr_l.header.stamp = time;
+    ros_fsr_l.header.frame_id = "/l_sole";
+
+    naoqi_bridge_msgs::FloatArrayStamped ros_fsr_r;
+    ros_fsr_r.header.stamp = time;
+    ros_fsr_r.header.frame_id = "/r_sole";
+
+    naoqi_bridge_msgs::FloatStamped ros_fsr_l_total;
+    ros_fsr_l_total.header.stamp = time;
+    ros_fsr_l_total.header.frame_id = "/l_sole";
+
+    naoqi_bridge_msgs::FloatStamped ros_fsr_r_total;
+    ros_fsr_r_total.header.stamp = time;
+    ros_fsr_r_total.header.frame_id = "/r_sole";
+
+    // fill left foot
+    ros_fsr_l.data.push_back(fsr_sensor_data_.left[FsrSensors::fl]);
+    ros_fsr_l.data.push_back(fsr_sensor_data_.left[FsrSensors::fr]);
+    ros_fsr_l.data.push_back(fsr_sensor_data_.left[FsrSensors::bl]);
+    ros_fsr_l.data.push_back(fsr_sensor_data_.left[FsrSensors::br]);
+    ros_fsr_l_total.data = fsr_sensor_data_.leftTotal;
+
+    // fill right foot
+    ros_fsr_r.data.push_back(fsr_sensor_data_.right[FsrSensors::fl]);
+    ros_fsr_r.data.push_back(fsr_sensor_data_.right[FsrSensors::fr]);
+    ros_fsr_r.data.push_back(fsr_sensor_data_.right[FsrSensors::bl]);
+    ros_fsr_r.data.push_back(fsr_sensor_data_.right[FsrSensors::br]);
+    ros_fsr_r_total.data = fsr_sensor_data_.rightTotal;
+
+    // publish
+    fsr_l_publisher_->publish(ros_fsr_l);
+    fsr_r_publisher_->publish(ros_fsr_r);
+    fsr_l_total_publisher_->publish(ros_fsr_l_total);
+    fsr_r_total_publisher_->publish(ros_fsr_r_total);
+
+    /*
     geometry_msgs::PointStamped ros_fsr;
     ros_fsr.header.stamp = time;
     ros_fsr.point.x = fsr_sensor_data_.leftTotal;
     ros_fsr.point.y = fsr_sensor_data_.rightTotal;
 
     fsr_publisher_->publish(ros_fsr);
+    */
 }
 
 void MotionComm::prepareAndPublishSystemData()

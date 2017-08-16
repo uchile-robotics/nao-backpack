@@ -11,6 +11,7 @@ This also includes a simple interface to control the NAO using an XBox controlle
 - `nao_robot`, `nao_meshes`, `naoqi_driver` and `naoqi_bridge` packages. Please follow the instructions in the `nao_description` folder.
 - `joy` package to control the NAO with a joystick.
 - `bhuman_modules` included in the nao-backpack package. It is mandatory to install these modules in you NAO in order to use this bridge.
+- `naoqi_bridge_msgs` ROS package. We use this to publish FSR sensors
 
 ## Usage
 We provide a launch file to run everything you need in you backpack/laptop to get the NAO data.
