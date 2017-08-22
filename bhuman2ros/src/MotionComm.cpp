@@ -27,6 +27,10 @@ bool MotionComm::receiveMessages()
         {
             InBinaryMemory memory(tmp_buf_, m_size);
             memory >> queue_;
+
+            #ifdef VERBOSE
+                ROS_INFO("Motion Comm: packet received of size %d", m_size);
+            #endif
         }
     } while(m_size > 0  && ros::ok());
 
@@ -53,9 +57,7 @@ bool MotionComm::handleMessage(InMessage &message)
         return true;
 
     case idSystemSensorData:
-    {
         message.bin >> system_sensor_data_;
-    }
         prepareAndPublishSystemData();
         return true;
 
@@ -105,7 +107,7 @@ void MotionComm::prepareAndPublishIMU()
 void MotionComm::prepareAndPublishFSR()
 {
 #ifdef VERBOSE
-    //ROS_INFO("Publishing FSR!");
+    ROS_INFO("Publishing FSR!");
 #endif
     naoqi_bridge_msgs::FloatArrayStamped ros_fsr_l;
     ros_fsr_l.header.stamp = time;

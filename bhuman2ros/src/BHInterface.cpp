@@ -96,13 +96,13 @@ void BHInterface::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
 
 void BHInterface::printParameters()
 {
-    std::cout << "Initializing bhuman2ros node" << std::endl;
-    std::cout << "rate_cognition: " <<  rate_cognition_ << "\n"
-              << "rate_motion: "    <<  rate_motion_ << "\n"
-              << "port_cognition: " <<  port_cognition_ << "\n"
-              << "port_motion: "    <<  port_motion_ << "\n"
-              << "ip_cognition: "   <<  ip_cognition_ << "\n"
-              << "ip_motion: "      <<  ip_motion_ << std::endl;
+    ROS_INFO("Initializing bhuman2ros node");
+    ROS_INFO("rate_cognition: %d", rate_cognition_);
+    ROS_INFO("rate_motion: %d", rate_motion_);
+    ROS_INFO("port_cognition: %d", port_cognition_);
+    ROS_INFO("port_motion: %d", port_motion_);
+    ROS_INFO("ip_cognition: %s", ip_cognition_.c_str());
+    ROS_INFO("ip_motion: %s", ip_motion_.c_str());
 }
 
 } //bhuman2ros

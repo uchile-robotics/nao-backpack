@@ -2,7 +2,7 @@
   <arg name="version"  default="V40"            doc="The NAO version currently used" />
   <arg name="use_rviz" default="false"          doc="True to start RViz"/>
   <arg name="use_joy"  default="false"          doc="True to use a joystick"/>
-  <arg name="robot_ip" default="192.168.21.121" doc="The IP of the robot to be connected"/>
+  <arg name="robot_ip" default="127.0.0.1"      doc="The IP of the robot to be connected"/>
   <arg name="joy_dev"  default="/dev/input/js0" doc="Joystick device"/>
 
   <!-- NAO description -->
