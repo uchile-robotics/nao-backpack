@@ -48,7 +48,7 @@ protected:
     char* m_buf_;           // buffer to save the image (only used in CognitionComm)
     char* tmp_buf_;         // buffer to save the packets
     boost::shared_ptr<boost::mutex> mutex_; // a mutex for the stream handler
-    ros::Time time;         // ros time
+    ros::Time time_;         // ros time
 
 private:
 

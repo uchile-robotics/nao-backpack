@@ -17,7 +17,9 @@
 #include <ros/ros.h>
 #include <image_transport/image_transport.h>
 #include <sensor_msgs/Joy.h>
+#include <sensor_msgs/BatteryState.h>
 #include <naoqi_bridge_msgs/FloatArrayStamped.h>
+#include <naoqi_bridge_msgs/IntArrayStamped.h>
 #include <naoqi_bridge_msgs/FloatStamped.h>
 
 // Boost
@@ -60,6 +62,8 @@ private:
     // ROS publishers and subscribers
     ros::Publisher imu_publisher_;
     ros::Publisher joint_state_publisher_;
+    ros::Publisher joint_currents_publisher_;
+    ros::Publisher battery_state_publisher_;
     ros::Publisher fsr_publisher_;
     ros::Publisher fsr_l_publisher_, fsr_l_total_publisher_;
     ros::Publisher fsr_r_publisher_, fsr_r_total_publisher_;

@@ -128,7 +128,7 @@ void CognitionComm::prepareAndPublishImage()
     // fill camera info
     ros_cam_info.height = image_rgb_.height;
     ros_cam_info.width = image_rgb_.width;
-    ros_cam_info.header.stamp = time;
+    ros_cam_info.header.stamp = time_;
     ros_cam_info.header.frame_id = "/CameraTop_optical_frame";
 
     // publish image

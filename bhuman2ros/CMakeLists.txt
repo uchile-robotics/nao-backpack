@@ -10,6 +10,7 @@ find_package(catkin REQUIRED COMPONENTS
   cv_bridge
   image_transport
   message_generation
+  naoqi_bridge_msgs
 )
 
 find_package(Boost REQUIRED COMPONENTS thread)

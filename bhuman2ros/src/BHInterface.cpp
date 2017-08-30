@@ -47,6 +47,9 @@ BHInterface::BHInterface() : node_handle_("~")
     fsr_r_total_publisher_ = node_handle_.advertise<naoqi_bridge_msgs::FloatStamped>("fsr_r_total", 1);
     joint_state_publisher_ = node_handle_.advertise<sensor_msgs::JointState>("joint_states", 1);
 
+    battery_state_publisher_ = node_handle_.advertise<sensor_msgs::BatteryState>("battery_state", 1);
+    joint_currents_publisher_ = node_handle_.advertise<naoqi_bridge_msgs::FloatArrayStamped>("joint_currents", 1);
+
     motion_comm_->imu_publisher_    = boost::shared_ptr<ros::Publisher>(&imu_publisher_);
     motion_comm_->joints_publisher_ = boost::shared_ptr<ros::Publisher>(&joint_state_publisher_);
     motion_comm_->fsr_publisher_    = boost::shared_ptr<ros::Publisher>(&fsr_publisher_);
@@ -54,6 +57,9 @@ BHInterface::BHInterface() : node_handle_("~")
     motion_comm_->fsr_r_publisher_  = boost::shared_ptr<ros::Publisher>(&fsr_r_publisher_);
     motion_comm_->fsr_l_total_publisher_  = boost::shared_ptr<ros::Publisher>(&fsr_l_total_publisher_);
     motion_comm_->fsr_r_total_publisher_  = boost::shared_ptr<ros::Publisher>(&fsr_r_total_publisher_);
+
+    motion_comm_->battery_state_publisher_  = boost::shared_ptr<ros::Publisher>(&battery_state_publisher_);
+    motion_comm_->joints_currents_publisher_  = boost::shared_ptr<ros::Publisher>(&joint_currents_publisher_);
 
     // Cognition
     image_transport::ImageTransport it(node_handle_);

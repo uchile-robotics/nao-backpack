@@ -22,11 +22,14 @@
 
 // ROS Dependencies
 #include <ros/ros.h>
+#include <tf/tf.h>
 #include <sensor_msgs/Imu.h>
 #include <sensor_msgs/JointState.h>
 #include <sensor_msgs/Joy.h>
+#include <sensor_msgs/BatteryState.h>
 #include <geometry_msgs/PointStamped.h>
 #include <naoqi_bridge_msgs/FloatArrayStamped.h>
+#include <naoqi_bridge_msgs/IntArrayStamped.h>
 #include <naoqi_bridge_msgs/FloatStamped.h>
 
 // Boost
@@ -46,6 +49,8 @@ public:
     // Variables
     boost::shared_ptr<ros::Publisher> imu_publisher_;
     boost::shared_ptr<ros::Publisher> joints_publisher_;
+    boost::shared_ptr<ros::Publisher> joints_currents_publisher_;
+    boost::shared_ptr<ros::Publisher> battery_state_publisher_;
     boost::shared_ptr<ros::Publisher> fsr_publisher_;
     boost::shared_ptr<ros::Publisher> fsr_r_publisher_, fsr_r_total_publisher_;
     boost::shared_ptr<ros::Publisher> fsr_l_publisher_, fsr_l_total_publisher_;

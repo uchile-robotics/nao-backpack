@@ -45,7 +45,7 @@ bool CommBase::main()
 
     while(ros::ok())
     {
-        time = ros::Time::now();
+        time_ = ros::Time::now();
         bool sent = sendMessages();
         bool received = receiveMessages();
 

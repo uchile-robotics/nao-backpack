@@ -79,13 +79,16 @@ void MotionComm::prepareAndPublishIMU()
 
     // Fill IMU
     sensor_msgs::Imu ros_imu;
-    ros_imu.header.stamp = time;
+    ros_imu.header.stamp = time_;
     ros_imu.header.frame_id = "/ImuTorsoGyrometer_frame";
 
     // fill orientation
-    ros_imu.orientation.x = inertial_sensor_data_.angle(0);
-    ros_imu.orientation.y = inertial_sensor_data_.angle(1);
-    ros_imu.orientation.z = inertial_sensor_data_.angle(2);
+    tf::Quaternion q;
+    q.setRPY(inertial_sensor_data_.angle(0), inertial_sensor_data_.angle(1), inertial_sensor_data_.angle(2));
+    ros_imu.orientation.x = q.x();
+    ros_imu.orientation.y = q.y();
+    ros_imu.orientation.z = q.z();
+    ros_imu.orientation.w = q.w();
     //rosIMU.orientation = {0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0};
 
     // fill gyro
@@ -110,19 +113,19 @@ void MotionComm::prepareAndPublishFSR()
     ROS_INFO("Publishing FSR!");
 #endif
     naoqi_bridge_msgs::FloatArrayStamped ros_fsr_l;
-    ros_fsr_l.header.stamp = time;
+    ros_fsr_l.header.stamp = time_;
     ros_fsr_l.header.frame_id = "/l_sole";
 
     naoqi_bridge_msgs::FloatArrayStamped ros_fsr_r;
-    ros_fsr_r.header.stamp = time;
+    ros_fsr_r.header.stamp = time_;
     ros_fsr_r.header.frame_id = "/r_sole";
 
     naoqi_bridge_msgs::FloatStamped ros_fsr_l_total;
-    ros_fsr_l_total.header.stamp = time;
+    ros_fsr_l_total.header.stamp = time_;
     ros_fsr_l_total.header.frame_id = "/l_sole";
 
     naoqi_bridge_msgs::FloatStamped ros_fsr_r_total;
-    ros_fsr_r_total.header.stamp = time;
+    ros_fsr_r_total.header.stamp = time_;
     ros_fsr_r_total.header.frame_id = "/r_sole";
 
     // fill left foot
@@ -147,7 +150,7 @@ void MotionComm::prepareAndPublishFSR()
 
     /*
     geometry_msgs::PointStamped ros_fsr;
-    ros_fsr.header.stamp = time;
+    ros_fsr.header.stamp = time_;
     ros_fsr.point.x = fsr_sensor_data_.leftTotal;
     ros_fsr.point.y = fsr_sensor_data_.rightTotal;
 
@@ -161,6 +164,15 @@ void MotionComm::prepareAndPublishSystemData()
 #ifdef VERBOSE
     ROS_INFO("Publishing System Data!");
 #endif
+    sensor_msgs::BatteryState ros_battery_state;
+
+    ros_battery_state.header.stamp = time_;
+
+    ros_battery_state.current = system_sensor_data_.batteryCurrent;
+    ros_battery_state.power_supply_status = system_sensor_data_.batteryCharging? sensor_msgs::BatteryState::POWER_SUPPLY_STATUS_CHARGING : sensor_msgs::BatteryState::POWER_SUPPLY_STATUS_DISCHARGING;
+    ros_battery_state.percentage = system_sensor_data_.batteryLevel;
+
+    battery_state_publisher_->publish(ros_battery_state);
 }
 
 void MotionComm::prepareAndPublishJointSensorData()
@@ -169,6 +181,96 @@ void MotionComm::prepareAndPublishJointSensorData()
 #ifdef VERBOSE
     ROS_INFO("Publishing Joint Sensor Data!");
 #endif
+    naoqi_bridge_msgs::FloatArrayStamped ros_joint_currents;
+
+    ros_joint_currents.data.resize(26);
+
+    // Head angles
+    //ros_joints.name[0]      = "HeadYaw";
+    ros_joint_currents.data[0]  = joint_sensor_data_.currents[Joints::headYaw];
+
+    //ros_joints.name[1]      = "HeadPitch";
+    ros_joint_currents.data[1]  = joint_sensor_data_.currents[Joints::headPitch];
+
+    // Left leg
+    //ros_joints.name[2]      = "LHipYawPitch";
+    ros_joint_currents.data[2]  = joint_sensor_data_.currents[Joints::lHipYawPitch];
+
+    //ros_joints.name[3]      = "LHipRoll";
+    ros_joint_currents.data[3]  = joint_sensor_data_.currents[Joints::lHipRoll];
+
+    //ros_joints.name[4]      = "LHipPitch";
+    ros_joint_currents.data[4]  = joint_sensor_data_.currents[Joints::lHipPitch];
+
+    //ros_joints.name[5]      = "LKneePitch";
+    ros_joint_currents.data[5]  = joint_sensor_data_.currents[Joints::lKneePitch];
+
+    //ros_joints.name[6]      = "LAnklePitch";
+    ros_joint_currents.data[6]  = joint_sensor_data_.currents[Joints::lAnklePitch];
+
+    //ros_joints.name[7]      = "LAnkleRoll";
+    ros_joint_currents.data[7]  = joint_sensor_data_.currents[Joints::lAnkleRoll];
+
+    // Right Leg
+    //ros_joints.name[8]      = "RHipYawPitch";
+    ros_joint_currents.data[8]  = joint_sensor_data_.currents[Joints::rHipYawPitch];
+
+    //ros_joints.name[9]      = "RHipRoll";
+    ros_joint_currents.data[9]  = joint_sensor_data_.currents[Joints::rHipRoll];
+
+    //ros_joints.name[10]     = "RHipPitch";
+    ros_joint_currents.data[10] = joint_sensor_data_.currents[Joints::rHipPitch];
+
+    //ros_joints.name[11]     = "RKneePitch";
+    ros_joint_currents.data[11] = joint_sensor_data_.currents[Joints::rKneePitch];
+
+    //ros_joints.name[12]     = "RAnklePitch";
+    ros_joint_currents.data[12] = joint_sensor_data_.currents[Joints::rAnklePitch];
+
+    //ros_joints.name[13]     = "RAnkleRoll";
+    ros_joint_currents.data[13] = joint_sensor_data_.currents[Joints::rAnkleRoll];
+
+    // Left arm
+    //ros_joints.name[14]     = "LShoulderPitch";
+    ros_joint_currents.data[14] = joint_sensor_data_.currents[Joints::lShoulderPitch];
+
+    //ros_joints.name[15]     = "LShoulderRoll";
+    ros_joint_currents.data[15] = joint_sensor_data_.currents[Joints::lShoulderRoll];
+
+    //ros_joints.name[16]     = "LElbowYaw";
+    ros_joint_currents.data[16] = joint_sensor_data_.currents[Joints::lElbowYaw];
+
+    //ros_joints.name[17]     = "LElbowRoll";
+    ros_joint_currents.data[17] = joint_sensor_data_.currents[Joints::lElbowRoll];
+
+    //ros_joints.name[18]     = "LWristYaw";
+    ros_joint_currents.data[18] = joint_sensor_data_.currents[Joints::lWristYaw];
+
+    //ros_joints.name[19]     = "LHand";
+    ros_joint_currents.data[19] = joint_sensor_data_.currents[Joints::lHand];
+
+    // Right arm
+    //ros_joints.name[20]     = "RShoulderPitch";
+    ros_joint_currents.data[20] = joint_sensor_data_.currents[Joints::rShoulderPitch];
+
+    //ros_joints.name[21]     = "RShoulderRoll";
+    ros_joint_currents.data[21] = joint_sensor_data_.currents[Joints::rShoulderRoll];
+
+    //ros_joints.name[22]     = "RElbowYaw";
+    ros_joint_currents.data[22] = joint_sensor_data_.currents[Joints::rElbowYaw];
+
+    //ros_joints.name[23]     = "RElbowRoll";
+    ros_joint_currents.data[23] = joint_sensor_data_.currents[Joints::rElbowRoll];
+
+    //ros_joints.name[24]     = "RWristYaw";
+    ros_joint_currents.data[24] = joint_sensor_data_.currents[Joints::rWristYaw];
+
+    //ros_joints.name[25]     = "RHand";
+    ros_joint_currents.data[25] = joint_sensor_data_.currents[Joints::rHand];;
+
+    // fill header
+    ros_joint_currents.header.stamp = time_;
+    joints_currents_publisher_->publish(ros_joint_currents);
 }
 
 void MotionComm::prepareAndPublishJoints()
@@ -266,7 +368,7 @@ void MotionComm::prepareAndPublishJoints()
     ros_joints.position[25] = joint_angles_.angles[Joints::rHand];;
 
     // fill header
-    ros_joints.header.stamp = time;
+    ros_joints.header.stamp = time_;
     joints_publisher_->publish(ros_joints);
 }
 
