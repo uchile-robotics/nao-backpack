@@ -84,12 +84,13 @@ void MotionComm::prepareAndPublishIMU()
 
     // fill orientation
     tf::Quaternion q;
-    q.setRPY(inertial_sensor_data_.angle(0), inertial_sensor_data_.angle(1), inertial_sensor_data_.angle(2));
+    q.setRPY(inertial_sensor_data_.angle(0), inertial_sensor_data_.angle(1), -inertial_sensor_data_.angle(2));  // a patch to fix the inverted yaw angle
     ros_imu.orientation.x = q.x();
     ros_imu.orientation.y = q.y();
     ros_imu.orientation.z = q.z();
     ros_imu.orientation.w = q.w();
     //rosIMU.orientation = {0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0};
+    ROS_INFO("IMU: x: %f, y: %f, z: %f", inertial_sensor_data_.angle(0).toDegrees(), inertial_sensor_data_.angle(1).toDegrees(), inertial_sensor_data_.angle(2).toDegrees());
 
     // fill gyro
     ros_imu.angular_velocity.x = inertial_sensor_data_.gyro(0);

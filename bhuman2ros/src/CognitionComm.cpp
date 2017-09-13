@@ -125,6 +125,11 @@ void CognitionComm::prepareAndPublishImage()
     // convert to ROS format
     fillImageRGB(image_rgb_, ros_image);
 
+    ros_image.height = image_rgb_.height;
+    ros_image.width = image_rgb_.width;
+    ros_image.header.stamp = time_;
+    ros_image.header.frame_id = "/CameraTop_optical_frame";
+
     // fill camera info
     ros_cam_info.height = image_rgb_.height;
     ros_cam_info.width = image_rgb_.width;
