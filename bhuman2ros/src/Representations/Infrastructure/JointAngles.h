@@ -16,6 +16,8 @@ public:
 
   JointAngles();
 
+  void draw();
+
   /**
    * The method returns the angle of the mirror (left/right) of the given joint.
    * @param joint The joint the mirror of which is returned.
@@ -34,8 +36,7 @@ private:
    */
   static float mirror(float angle);
 
-public:
-  ,
+public:,
   (ENUM_INDEXED_ARRAY(Angle, (Joints) Joint)) angles, /**< The angles of all joints. */
   (unsigned)(0) timestamp, /**< The time when the jointangles were received*/
 });

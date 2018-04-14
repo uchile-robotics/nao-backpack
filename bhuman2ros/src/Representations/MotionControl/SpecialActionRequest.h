@@ -18,12 +18,25 @@ STREAMABLE(SpecialActionRequest,
   /** ids for all special actions */
   ENUM(SpecialActionID,
   {,
-    playDead,
-    sitDown,
-    stand,
-    standHigh,
-    standHighLookUp,
-    getUpEngineDummy, //used for debugging motion of getUpEngine
+     playDead,
+     sitDown,
+     stand,
+     standHigh,
+     standHighLookUp,
+     getUpEngineDummy, //used for debugging motion of getUpEngine
+     sumoPosition,
+     sumoPositionExp,
+     standFromSumo,
+     standFromSumoExp,
+     keeperJumpLeft,
+     keeperJumpLeftPenalty,
+     keeperJumpLeftSign,
+     keeperJumpLeftSim,
+     keeperJumpRight,
+     keeperStandJumpLeft,
+     standUpFrontNao,
+     standUpBackNao,
+     goUp,
   });
 
   /**

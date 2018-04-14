@@ -97,6 +97,10 @@ BHInterface::~BHInterface()
 
 void BHInterface::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
 {
+#ifdef VERBOSE
+        ROS_INFO("bhinterface: joystick callback");
+#endif
+
     cognition_comm_->joystickToMotionRequest(joy);
 }
 

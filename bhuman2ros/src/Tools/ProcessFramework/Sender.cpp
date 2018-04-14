@@ -5,10 +5,10 @@
  *
  * @author <a href="mailto:Thomas.Roefer@dfki.de">Thomas Röfer</a>
  */
+
 #include "ProcessFramework.h"
 
 SenderList::SenderList(PlatformProcess* p, const std::string& senderName) :
-  next(0),
   name(senderName), // copy the sender's name. The name of the process is still missing.
   process(p)
 {
@@ -39,5 +39,5 @@ SenderList* SenderList::lookup(const std::string& processName, const std::string
   for(SenderList* p = getFirst(); p; p = p->getNext())
     if(processName + "." + p->name == senderName)
       return p;
-  return 0;
+  return nullptr;
 }

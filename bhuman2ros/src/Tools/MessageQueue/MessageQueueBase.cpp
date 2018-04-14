@@ -268,8 +268,9 @@ void MessageQueueBase::removeRepetitions()
       case idDebugRequest:
       case idDebugResponse:
       case idDebugDataResponse:
+      //case idHistogramPlot:
       case idPlot:
-      case idStaticPlot:
+      //case idStaticPlot: //Dattari: necesario agregar estos plots si se quieren usar
       case idConsole:
       case idAudioData:
       case idAnnotation:

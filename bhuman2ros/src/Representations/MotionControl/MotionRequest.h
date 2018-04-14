@@ -23,6 +23,7 @@ STREAMABLE(MotionRequest,
     specialAction,
     stand,
     getUp,
+    fall,
   });
 
   bool isValid() const
@@ -30,6 +31,7 @@ STREAMABLE(MotionRequest,
     return walkRequest.isValid();
   }
 
+  /** Draws something*/
   void draw() const,
 
   (Motion)(specialAction) motion, /**< The selected motion. */
@@ -73,5 +75,15 @@ public:
     return *this;
   }
 
+  BehaviorMotionRequest& operator=(const BehaviorMotionRequest& other)
+  {
+    motionControl = other.motionControl;
+    motion = other.motion;
+    specialActionRequest = other.specialActionRequest;
+    walkRequest = other.walkRequest;
+    kickRequest = other.kickRequest;
+    return *this;
+  }
 
 };
+

@@ -22,7 +22,6 @@ struct Settings;
  */
 class StreamHandler
 {
-/* MOD: We make StreamHandler's Constructor public so as to instantiate it anywhere */
 public:
   /**
    * Default constructor.

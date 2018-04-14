@@ -64,12 +64,14 @@ list(APPEND SRC_PLATFORM
 )
 
 list(APPEND SRC_REPRESENTATIONS
+    src/Representations/Configuration/WalkKicks.h
+
     src/Representations/Infrastructure/SensorData/FsrSensorData.h
     src/Representations/Infrastructure/SensorData/InertialSensorData.h
     src/Representations/Infrastructure/SensorData/JointSensorData.h
     src/Representations/Infrastructure/SensorData/KeyStates.h
     src/Representations/Infrastructure/SensorData/SystemSensorData.h
-    src/Representations/Infrastructure/SensorData
+    #src/Representations/Infrastructure/SensorData
     src/Representations/Infrastructure/Image.cpp
     src/Representations/Infrastructure/Image.h
     src/Representations/Infrastructure/JointAngles.cpp
@@ -84,7 +86,6 @@ list(APPEND SRC_REPRESENTATIONS
     src/Representations/MotionControl/MoveToTarget.h
     src/Representations/MotionControl/SpecialActionRequest.cpp
     src/Representations/MotionControl/SpecialActionRequest.h
-    src/Representations/MotionControl/WalkKicks.h
     src/Representations/MotionControl/WalkRequest.h
 )
 

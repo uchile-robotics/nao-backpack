@@ -8,12 +8,9 @@
 
 #include "ProcessFramework.h"
 
-ReceiverList::ReceiverList(PlatformProcess* p , const std::string& receiverName) :
-  next(0),
+ReceiverList::ReceiverList(PlatformProcess* p, const std::string& receiverName) :
   name(receiverName), // copy the receiver's name. The name of the process is still missing.
-  process(p),
-  reading(0),
-  actual(0)
+  process(p)
 {
   if(getFirst())
   {
@@ -32,7 +29,7 @@ ReceiverList::~ReceiverList()
 {
   for(int i = 0; i < 3; ++i)
     if(package[i])
-      delete [] (char*) package[i];
+      delete[] (char*)package[i];
 }
 
 ReceiverList*& ReceiverList::getFirst()
@@ -51,7 +48,7 @@ ReceiverList* ReceiverList::lookup(const std::string& processName, const std::st
   for(ReceiverList* p = getFirst(); p; p = p->getNext())
     if(processName + "." + p->name == receiverName)
       return p;
-  return 0;
+  return nullptr;
 }
 
 void ReceiverList::setPackage(void* p)
@@ -65,7 +62,7 @@ void ReceiverList::setPackage(void* p)
   ASSERT(writing != actual);
   ASSERT(writing != reading);
   if(package[writing])
-    delete [] (char*) package[writing];
+    delete[] (char*)package[writing];
   package[writing] = p;
   actual = writing;
   process->trigger();

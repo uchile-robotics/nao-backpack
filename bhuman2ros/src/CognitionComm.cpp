@@ -81,6 +81,9 @@ bool CognitionComm::receiveMessages()
             // otherwise, we assume the packets are correct and we keep saving them
             else
             {
+                //#ifdef VERBOSE
+                //    ROS_INFO("Cognition Comm: temp image size %d", tmp_size);
+                //#endif
                 memcpy( & m_buf_[m_size], tmp_buf_, tmp_size);
                 m_size += tmp_size;
             }
@@ -162,6 +165,11 @@ void CognitionComm::fillImageRGB(Image& bh_image, sensor_msgs::Image &ros_image)
 
 void CognitionComm::joystickToMotionRequest(const sensor_msgs::Joy::ConstPtr& joy)
 {
+
+    #ifdef VERBOSE
+            ROS_INFO("joystick callback");
+    #endif
+
     // BUTTONS
     // 0 - A - walk
     if(joy->buttons[0])
@@ -222,7 +230,7 @@ void CognitionComm::joystickToMotionRequest(const sensor_msgs::Joy::ConstPtr& jo
     switch(motion_request_.motion)
     {
         case MotionRequest::walk:
-            motion_request_.walkRequest.mode = WalkRequest::speedMode;
+            motion_request_.walkRequest.mode = WalkRequest::relativeSpeedMode;
 
             if(!control_omni_)
             {

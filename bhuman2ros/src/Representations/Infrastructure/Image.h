@@ -85,19 +85,11 @@ public:
    */
   Image& operator=(const Image& other);
 
-  Pixel* operator[](const int y)
-  {
-      return image + y * widthStep;
-  }
-
+  Pixel* operator[](const int y) { return image + y * widthStep; }
   const Pixel* operator[](const int y) const { return image + y * widthStep; }
-
   Pixel& operator[](const Vector2s& p) { return image[p.y() * widthStep + p.x()]; }
-
   const Pixel& operator[](const Vector2s& p) const { return image[p.y() * widthStep + p.x()]; }
-
   Pixel& operator[](const Vector2i& p) { return image[p.y() * widthStep + p.x()]; }
-
   const Pixel& operator[](const Vector2i& p) const { return image[p.y() * widthStep + p.x()]; }
 
   Pixel getFullSizePixel(int y, int x) const
@@ -128,22 +120,10 @@ public:
   void convertFromYCbCrToRGB(const Image& ycbcrImage);
 
   /**
-   * Converts an RGB image into an YCbCr image.
-   * @param rgbImage The given RGB image
+   * Converts an YCbCr image into an RGB image.
+   * @param ycbcrImage The given YCbCr image
    */
-  void convertFromRGBToYCbCr(const Image& rgbImage);
-
-  /**
-   * Converts an YCbCr image into a HSI image.
-   * @param ycrcbImage The given YCbCr image
-   */
-  void convertFromYCbCrToHSI(const Image& ycrcbImage);
-
-  /**
-   * Converts a HSI image into an YCbCr image.
-   * @param hsiImage The given HSI image
-   */
-  void convertFromHSIToYCbCr(const Image& hsiImage);
+  void convertFromYCbCr422ToRGB(const Image& ycbcrImage);
 
   /**
    * Sets the new resolution of the image including the widthStep.
@@ -158,6 +138,6 @@ public:
    */
   static float getColorDistance(const Image::Pixel& a, const Image::Pixel& b);
 
-private:
+protected:
   void serialize(In* in, Out* out);
 };

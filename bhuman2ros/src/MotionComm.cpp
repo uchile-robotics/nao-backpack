@@ -90,7 +90,7 @@ void MotionComm::prepareAndPublishIMU()
     ros_imu.orientation.z = q.z();
     ros_imu.orientation.w = q.w();
     //rosIMU.orientation = {0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0};
-    ROS_INFO("IMU: x: %f, y: %f, z: %f", inertial_sensor_data_.angle(0).toDegrees(), inertial_sensor_data_.angle(1).toDegrees(), inertial_sensor_data_.angle(2).toDegrees());
+    //ROS_INFO("IMU: x: %f, y: %f, z: %f", inertial_sensor_data_.angle(0).toDegrees(), inertial_sensor_data_.angle(1).toDegrees(), inertial_sensor_data_.angle(2).toDegrees());
 
     // fill gyro
     ros_imu.angular_velocity.x = inertial_sensor_data_.gyro(0);
@@ -130,18 +130,18 @@ void MotionComm::prepareAndPublishFSR()
     ros_fsr_r_total.header.frame_id = "/r_sole";
 
     // fill left foot
-    ros_fsr_l.data.push_back(fsr_sensor_data_.left[FsrSensors::fl]);
-    ros_fsr_l.data.push_back(fsr_sensor_data_.left[FsrSensors::fr]);
-    ros_fsr_l.data.push_back(fsr_sensor_data_.left[FsrSensors::bl]);
-    ros_fsr_l.data.push_back(fsr_sensor_data_.left[FsrSensors::br]);
-    ros_fsr_l_total.data = fsr_sensor_data_.leftTotal;
+    ros_fsr_l.data.push_back(fsr_sensor_data_.pressures[Legs::left][FsrSensors::fl]);
+    ros_fsr_l.data.push_back(fsr_sensor_data_.pressures[Legs::left][FsrSensors::fr]);
+    ros_fsr_l.data.push_back(fsr_sensor_data_.pressures[Legs::left][FsrSensors::bl]);
+    ros_fsr_l.data.push_back(fsr_sensor_data_.pressures[Legs::left][FsrSensors::br]);
+    ros_fsr_l_total.data = fsr_sensor_data_.totals[Legs::left];
 
     // fill right foot
-    ros_fsr_r.data.push_back(fsr_sensor_data_.right[FsrSensors::fl]);
-    ros_fsr_r.data.push_back(fsr_sensor_data_.right[FsrSensors::fr]);
-    ros_fsr_r.data.push_back(fsr_sensor_data_.right[FsrSensors::bl]);
-    ros_fsr_r.data.push_back(fsr_sensor_data_.right[FsrSensors::br]);
-    ros_fsr_r_total.data = fsr_sensor_data_.rightTotal;
+    ros_fsr_r.data.push_back(fsr_sensor_data_.pressures[Legs::right][FsrSensors::fl]);
+    ros_fsr_r.data.push_back(fsr_sensor_data_.pressures[Legs::right][FsrSensors::fr]);
+    ros_fsr_r.data.push_back(fsr_sensor_data_.pressures[Legs::right][FsrSensors::bl]);
+    ros_fsr_r.data.push_back(fsr_sensor_data_.pressures[Legs::right][FsrSensors::br]);
+    ros_fsr_r_total.data = fsr_sensor_data_.totals[Legs::right];
 
     // publish
     fsr_l_publisher_->publish(ros_fsr_l);
