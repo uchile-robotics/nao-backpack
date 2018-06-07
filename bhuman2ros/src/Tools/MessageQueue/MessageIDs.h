@@ -109,8 +109,9 @@ GLOBAL_ENUM(MessageID,
   idTeammateFieldCoverage,
   idWhistle,
   idTeammateRoleAssignment,
-  idTeammateStrikerDecision,
+  idTeammateBallPlayerDecision,
   idTeammateSearchBallTarget,
+  idBallModelUChile,
 
   // infrastructure
   idConsole,

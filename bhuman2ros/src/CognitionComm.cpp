@@ -45,6 +45,10 @@ bool CognitionComm::sendMessages()
     }
     out_queue_.clear();
 
+#ifdef VERBOSE
+    ROS_INFO("Cognition Comm: Sending messages finished");
+#endif
+
   return success;
 }
 
@@ -81,9 +85,10 @@ bool CognitionComm::receiveMessages()
             // otherwise, we assume the packets are correct and we keep saving them
             else
             {
-                //#ifdef VERBOSE
-                //    ROS_INFO("Cognition Comm: temp image size %d", tmp_size);
-                //#endif
+                #ifdef VERBOSE
+                    //ROS_INFO("Cognition Comm: temp image size %d", tmp_size);
+                    ROS_INFO("Cognition Comm: curr image size %d", m_size);
+                #endif
                 memcpy( & m_buf_[m_size], tmp_buf_, tmp_size);
                 m_size += tmp_size;
             }
@@ -91,6 +96,10 @@ bool CognitionComm::receiveMessages()
     }
     InBinaryMemory memory(&m_buf_[0], m_size);
     memory >> queue_;
+
+#ifdef VERBOSE
+    ROS_INFO("Cognition Comm: Image reception finished");
+#endif
 
     return queue_.getNumberOfMessages() > 0;
 }
@@ -141,6 +150,11 @@ void CognitionComm::prepareAndPublishImage()
 
     // publish image
     publisher_->publish(ros_image, ros_cam_info);
+
+#ifdef VERBOSE
+    ROS_INFO("CognitionComm: Image Published");
+#endif
+
 }
 
 void CognitionComm::fillImageRGB(Image& bh_image, sensor_msgs::Image &ros_image)
@@ -273,6 +287,11 @@ void CognitionComm::joystickToMotionRequest(const sensor_msgs::Joy::ConstPtr& jo
         #endif
             break;
     }
+
+#ifdef VERBOSE
+    ROS_INFO("Cognition Comm: End Joystick callback");
+#endif
+
 }
 
 } //bhuman2ros

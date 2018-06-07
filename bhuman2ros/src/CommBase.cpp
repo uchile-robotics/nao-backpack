@@ -45,17 +45,20 @@ bool CommBase::main()
 
     while(ros::ok())
     {
+        ROS_INFO("Main process %s", name_.c_str());
         time_ = ros::Time::now();
         bool sent = sendMessages();
         bool received = receiveMessages();
 
         if(received)
         {
+            ROS_INFO("handling %s messages", name_.c_str());
             queue_.handleAllMessages(*this);
             queue_.clear();
         }
         else
         {
+            ROS_INFO("sleeping process %s", name_.c_str());
             thread_rate.sleep();
         }
     }
